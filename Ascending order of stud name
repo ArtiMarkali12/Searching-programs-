@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<string.h>
+struct stud
+{
+   int rno;
+   char name[20];
+
+    }s1[100],t;
+int main()
+{
+int i,n,pass;
+printf("entwr limit");
+scanf("%d",&n);
+printf("\n enter rno name");
+for(i=0;i<n;i++)
+scanf("%d%s",&s1[i].rno,&s1[i].name);
+
+for(pass=1;pass<n;pass++)
+{
+for(i=0;i<n-pass;i++)
+{
+if(strcmp (s1[i].name,s1[i+1].name)>0)
+{
+t=s1[i];
+s1[i]=s1[i+1];
+s1[i+1]=t;
+}
+}
+}
+printf("display stud info");
+for(i=0;i<n;i++)
+printf("\n%d%s",s1[i].rno,s1[i].name);
+
+}
