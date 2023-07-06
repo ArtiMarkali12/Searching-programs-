@@ -1,0 +1,62 @@
+#include<stdio.h>
+int main()
+{
+        int a[100],n,i,ch;
+        void insertion(int a[100],int n);
+        void bubble_sort(int a[100],int n);
+        printf("enter limit :");
+        scanf("%d",&n);
+        printf("enter n numbers :");
+        for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+
+        printf("\n 1-inserion \n 2- bubble \n enter choice :");
+        scanf("%d",&ch);
+        switch(ch)
+        {
+        case 1:insertion(a,n);
+                break;
+        case 2:bubble_sort(a,n);
+                break;
+        deafault :printf("invalid choice...");
+
+        }
+}
+
+
+        void insertion(int a[100],int n)
+        {
+        int i,j,t,num;
+        for(i=1;i<n;i++)
+        {
+        num=a[i];
+        for(j=i-1;j>=0 && num<a[j];j--)
+        {
+        t=a[j+1];
+        a[j+1]=a[j];
+        a[j]=t;
+        }
+      }
+      printf("\n sorted no =:");
+      for(i=0;i<n;i++)
+      printf("%d\t",a[i]);
+      }
+      void bubble_sort(int a[100],int n)
+      {
+      int i,pass,t;
+      for(pass=1;pass<n;pass++)
+      {
+      for(i=0;i<n-pass;i++)
+   {
+      if(a[i]>a[i+1])
+      {
+        t=a[i];
+        a[i]=a[i+1];
+        a[i+1]=t;
+        }
+      }
+      }
+      printf("\n bubble sort no=:");
+      for(i=0;i<n;i++)
+      printf("%d\t",a[i]);
+      }
