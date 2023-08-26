@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct emp
+{
+        char ename[20];
+        int age,sal;
+        }e1[100],t;
+        void bubble(struct emp e1[],int n )
+    {
+        int i,pass;
+        for(pass=1;pass<n;pass++)
+        {
+        for(i=0;i<n-pass;i++)
+        {
+        if(e1[i].age>e1[i+1].age)
+        {
+        t=e1[i];
+        e1[i]=e1[i+1];
+        e1[i+1]=t;
+        }
+}
+}
+        printf("\n bubble sort \n ");
+        for(i=0;i<n;i++)
+        {
+        printf("\n %s\t %d\t %d",e1[i].ename,e1[i].age,e1[i].sal);
+        }
+}
+        void insertion(struct emp e1[],int n)
+        {
+                int i,j,k,key;
+                for(i=1;i<n;i++)
+                {
+                key=e1[i].age;
+                for(j=i;j>=0 && key<e1[j].age;j--)
+                {
+                t=e1[j+1];
+                e1[j+1]=e1[j];
+                e1[j]=t;
+                }
+}
+        printf("\n insertion sort\n ");
+        for(i=0;i<n;i++)
+{
+        printf("\n %s\t %d\t%d",e1[i].ename,e1[i].age,e1[i].sal);
+        }
+}
+int main()
+{
+        FILE  *f1;
+        int i=0,n;
+        f1=fopen("emp.txt","r");
+        if(f1==NULL)
+        {
+        printf("file not found :");
+        exit(0);
+        }
+        while(!feof(f1))
+        {
+        fscanf(f1,"%s%d%d",&e1[i].ename,&e1[i].age,&e1[i].sal);
+        i++;
+        }
+        n=i-1;
+        bubble(e1,n);
+        insertion(e1,n);
+        fclose(f1);
+        }
