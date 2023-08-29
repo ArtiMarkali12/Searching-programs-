@@ -1,0 +1,33 @@
+#include<string.h>
+#include<stdio.h>
+int main()
+{
+        void search(char a[100][100],int n,char name[100]);
+        int i,n;
+        char a[100][100],name[100];
+        printf("enter limit:");
+        scanf("%d",&n);
+        printf("enter n names:");
+        for(i=0;i<n;i++)
+        {
+        scanf("%s",&a[i]);
+        }
+        printf("enter name to search:");
+        scanf("%s",&name);
+        search(a,n,name);
+        }
+        void search(char a[100][100],int n,char name[100])
+        {
+        int i;
+        for(i=0;i<n;i++)
+        {
+        if(strcmp(a[i],name)==0)
+        {
+        break;
+        }
+}
+        if(i==n)
+        printf("not found:");
+        else
+        printf("found:");
+        }
